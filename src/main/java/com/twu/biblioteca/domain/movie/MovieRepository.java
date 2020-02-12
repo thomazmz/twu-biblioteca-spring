@@ -1,9 +1,9 @@
-package com.twu.biblioteca.domain.book;
+package com.twu.biblioteca.domain.movie;
 
 import com.twu.biblioteca.domain.borrowableItem.BorrowableItemRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BookRepository extends BorrowableItemRepository<Book> {
+public class MovieRepository extends BorrowableItemRepository<Movie> {
 
 }

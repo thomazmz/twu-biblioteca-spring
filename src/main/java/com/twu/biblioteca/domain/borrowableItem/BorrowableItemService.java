@@ -2,7 +2,6 @@ package com.twu.biblioteca.domain.borrowableItem;
 
 import com.twu.biblioteca.domain.UnavailableResourceException;
 import com.twu.biblioteca.domain.UnregisteredEntityIdException;
-import com.twu.biblioteca.domain.book.Book;
 import com.twu.biblioteca.domain.user.User;
 
 import java.util.Set;
@@ -11,7 +10,7 @@ public abstract class BorrowableItemService<T extends BorrowableItem> {
 
     private BorrowableItemRepository<T> borrowableItemRepository;
 
-    public BorrowableItemService(BorrowableItemRepository<T> borrowableItemRepository) {
+    public BorrowableItemService(BorrowableItemRepository borrowableItemRepository) {
         this.borrowableItemRepository = borrowableItemRepository;
     }
 

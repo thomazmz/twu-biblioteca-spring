@@ -1,17 +1,19 @@
 package com.twu.biblioteca.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-public abstract class Repository<T extends Entity> {
+public abstract class EntityRepository<T extends Entity> {
 
     private Long counter;
 
     private Map<Long, T> instances = new LinkedHashMap<>();
 
-    public Repository() {
+    public EntityRepository() {
         counter = 0L;
     }
 

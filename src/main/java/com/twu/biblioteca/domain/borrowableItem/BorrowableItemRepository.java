@@ -1,15 +1,13 @@
 package com.twu.biblioteca.domain.borrowableItem;
 
-import com.twu.biblioteca.domain.Repository;
-import org.springframework.stereotype.Component;
+import com.twu.biblioteca.domain.EntityRepository;
 
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Component
-public abstract class BorrowableItemRepository<T extends BorrowableItem> extends Repository<T> {
+public class BorrowableItemRepository<T extends BorrowableItem> extends EntityRepository<T> {
 
     public BorrowableItemRepository(List<T> borrowableItems) {
         super();

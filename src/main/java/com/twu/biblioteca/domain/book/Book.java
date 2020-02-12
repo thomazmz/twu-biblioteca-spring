@@ -18,4 +18,16 @@ public class Book extends BorrowableItem {
         this.author = author;
         this.year = year;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Year getYear() {
+        return year;
+    }
 }
