@@ -11,8 +11,8 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserRepository inMemoryUserRepository) {
+        this.userRepository = inMemoryUserRepository;
         currentUser = null;
     }
 
@@ -20,10 +20,10 @@ public class UserService {
         return Optional.ofNullable(currentUser);
     }
 
-    public User login(String libraryNumber, String password) throws WrongCredentialsException {
-        User user = userRepository.findByLibraryNumber(libraryNumber).orElseThrow(WrongCredentialsException::new);
+    public User login(String libraryNumber, String password) throws InvalidUserCredentialsException {
+        User user = userRepository.findByLibraryNumber(libraryNumber).orElseThrow(InvalidUserCredentialsException::new);
         if(!user.checkPassword(password))
-            throw new WrongCredentialsException();
+            throw new InvalidUserCredentialsException();
         return currentUser = user;
     }
 }

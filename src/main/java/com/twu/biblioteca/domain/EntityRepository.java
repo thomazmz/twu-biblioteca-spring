@@ -1,40 +1,14 @@
 package com.twu.biblioteca.domain;
 
-import org.springframework.stereotype.Component;
-
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.Set;
 
-public abstract class EntityRepository<T extends Entity> {
+public interface EntityRepository<T extends Entity> {
 
-    private Long counter;
+    Set<T> getAll();
 
-    private Map<Long, T> instances = new LinkedHashMap<>();
+    T getById(Long id)  throws UnregisteredEntityIdException;
 
-    public EntityRepository() {
-        counter = 0L;
-    }
+    T create(T instance);
 
-    public Set<T> getAll() {
-        return new LinkedHashSet<>(instances.values());
-    }
-
-    public T getById(Long id) throws UnregisteredEntityIdException {
-        if(!instances.containsKey(id))
-            throw new UnregisteredEntityIdException();
-        return instances.get(id);
-    }
-
-    public T create(T instance) {
-        instance.setId(++counter);
-        instances.put(counter, instance);
-        return instance;
-    }
-
-    public void delete(Long instanceId) {
-        if(instances.get(instanceId) != null)
-            instances.remove(instanceId);
-    }
+    void delete(Long instanceId);
 }
