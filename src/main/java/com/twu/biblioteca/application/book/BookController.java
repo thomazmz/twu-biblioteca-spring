@@ -5,7 +5,6 @@ import com.twu.biblioteca.domain.book.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("books")
 public class BookController {

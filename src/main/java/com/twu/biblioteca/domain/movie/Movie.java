@@ -22,12 +22,19 @@ public class Movie extends BorrowableItem {
         this.rating = rating;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%-5s", getId()) +
-                String.format("%-30s", title) +
-                String.format("%-30s", director) +
-                String.format("%-8s", year) +
-                String.format("%-2s", rating);
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public Year getYear() {
+        return year;
+    }
+
+    public Integer getRating() {
+        return rating;
     }
 }
